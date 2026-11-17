@@ -14,7 +14,7 @@ window.SITE_DATA = {
       "Vinh Phát — dịch vụ vận chuyển quốc tế, gom container, mua hộ hàng Trung Quốc và ủy thác xuất nhập khẩu.",
     logo: "assets/LOGO VINH PHÁT.png",
     logoAlt: "Vinh Phát Design & Print",
-    favicon: "assets/LOGO VINH PHÁT.png",
+    favicon: "favicon.png",
   },
 
   // Sửa một lần: tự cập nhật ở topbar, liên hệ, chân trang và nút gọi.
