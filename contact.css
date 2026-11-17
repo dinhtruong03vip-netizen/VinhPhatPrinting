@@ -73,3 +73,7 @@
   .contact-page .footer-about,.contact-page .footer-contact{grid-column:auto}
   .contact-page .footer-bottom{flex-wrap:wrap}
 }
+
+.contact-submit:disabled{opacity:.65;cursor:wait;scale:none;transform:none}
+.contact-email-status[data-state="success"]{color:#14633b;background:#eef8f1}
+.contact-email-status[data-state="error"]{color:#a21d32;background:#fff0f1}

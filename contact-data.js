@@ -2,7 +2,7 @@
  * TRANG LIÊN HỆ VÀ BÁO GIÁ — sửa nội dung tại đây, lưu rồi tải lại trang.
  * Logo, menu và liên hệ mặc định dùng chung từ data.js.
  * Biểu mẫu báo giá in ấn và bao bì gồm 8 trường như cửa sổ báo giá.
- * Website tĩnh: nút gửi soạn email, người dùng xác nhận gửi trong ứng dụng email.
+ * Biểu mẫu gửi trực tiếp qua EmailJS; cấu hình tại emailjs-config.js.
  */
 window.CONTACT_DATA = {
   page: {
@@ -47,11 +47,8 @@ window.CONTACT_DATA = {
   },
 
   email: {
-    recipient: "", // Để trống để dùng contact.email từ data.js.
     subject: "Yêu cầu báo giá in ấn và bao bì",
     introduction: "Kính gửi bộ phận tư vấn, tôi cần báo giá in ấn và bao bì với thông tin sau:",
-    emptyValue: "Chưa cung cấp",
-    draftMessage: "Thông tin đã được soạn thành email. Vui lòng kiểm tra và nhấn Gửi trong ứng dụng email để hoàn tất yêu cầu. Nếu ứng dụng chưa mở, dùng liên kết bên dưới.",
-    draftLinkLabel: "Mở email yêu cầu báo giá"
+    emptyValue: "Chưa cung cấp"
   }
 };

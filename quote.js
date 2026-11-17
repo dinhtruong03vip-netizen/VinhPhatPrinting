@@ -117,17 +117,5 @@
     document.body.classList.remove('quote-open');
     opener?.focus({preventScroll:true});
   });
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    if (!form.reportValidity()) return;
-    const body = [data.email.introduction, '', ...data.fields.map(field => `${field.label}: ${controls.get(field.name).value.trim() || data.email.emptyValue}`)].join('\n');
-    const recipient = data.email.recipient || contact.email;
-    const url = `mailto:${recipient}?subject=${encodeURIComponent(data.email.subject)}&body=${encodeURIComponent(body)}`;
-    const draft = element('a', '', data.email.draftLinkLabel);
-    draft.href = url;
-    draft.dataset.quoteEmail = '';
-    status.replaceChildren(document.createTextNode(data.email.draftMessage), element('br'), draft);
-    status.hidden = false;
-    draft.click();
-  });
+  window.QuoteEmail.bind({ form, fields: data.fields, controls, submit, status, email: data.email });
 })();

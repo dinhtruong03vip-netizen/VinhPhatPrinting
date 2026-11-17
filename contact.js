@@ -96,16 +96,7 @@
   text('.footer-bottom a',`${shared.footer.backTopLabel} ↑`);
   const floating=document.querySelector('.floating-contact');floating.href=phone;floating.setAttribute('aria-label',`Gọi tư vấn: ${shared.contact.phoneDisplay}`);
 
-  // Website tĩnh: chuẩn bị email; không gửi dữ liệu lên máy chủ hoặc báo gửi thành công.
-  form.addEventListener('submit',event=>{
-    event.preventDefault();if(!form.reportValidity())return;
-    const body=[data.email.introduction,'',...data.form.fields.map(field=>`${field.label}: ${controls.get(field.name).value.trim()||data.email.emptyValue}`)].join('\n');
-    const recipient=data.email.recipient||shared.contact.email;
-    const draft=node('a','',data.email.draftLinkLabel);
-    draft.href=`mailto:${recipient}?subject=${encodeURIComponent(data.email.subject)}&body=${encodeURIComponent(body)}`;
-    draft.dataset.contactEmail='';
-    status.replaceChildren(document.createTextNode(data.email.draftMessage),node('br'),draft);status.hidden=false;draft.click();
-  });
+  window.QuoteEmail.bind({ form, fields: data.form.fields, controls, submit, status, email: data.email });
   const menu=document.querySelector('.nav');const toggle=document.querySelector('.menu-toggle');
   const closeMenu=()=>{menu.classList.remove('is-open');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Mở menu');};
   toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')!=='true';menu.classList.toggle('is-open',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Đóng menu':'Mở menu');});

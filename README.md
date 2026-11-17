@@ -24,7 +24,7 @@ Mở `index.html`, `gioi-thieu.html`, `dich-vu.html`, `bang-gia.html` hoặc `li
 - `quote.css`, `quote.js`: giao diện cửa sổ và xử lý biểu mẫu báo giá trên trang chủ.
 - `lien-he-va-bao-gia.html`: trang liên hệ và báo giá hàng lẻ (LCL), không có tab FCL.
 - `contact-data.js`: tiêu đề, nội dung form, phương thức vận chuyển và khung liên hệ của trang liên hệ.
-- `contact.css`, `contact.js`: giao diện trang liên hệ theo mẫu và xử lý biểu mẫu soạn email.
+- `contact.css`, `contact.js`: giao diện trang liên hệ theo mẫu và kết nối biểu mẫu gửi qua EmailJS.
 - `dich-vu.html`: trang dịch vụ in ấn, với thẻ ngang, thông tin quy cách và cửa sổ chi tiết từng dịch vụ.
 - `services-data.js`: nội dung, ảnh, icon, thông số, quy trình và các nút trên trang dịch vụ.
 - `services.css`, `services.js`: giao diện và thao tác xem chi tiết của trang dịch vụ.
@@ -42,7 +42,7 @@ Mở `index.html`, `gioi-thieu.html`, `dich-vu.html`, `bang-gia.html` hoặc `li
 - Sửa nội dung trong `data.js`, lưu file rồi tải lại trang. Nội dung trong file này thay thế bản mặc định trong HTML khi JavaScript hoạt động.
 - Thay ảnh trong `assets/` rồi cập nhật đường dẫn trong `data.js`. `site.logo` dùng chung cho logo đầu trang và chân trang; `site.favicon` là biểu tượng trên tab.
 - Menu nằm trong `menu` của `data.js`: đường dẫn bắt đầu bằng `#` dẫn đến một phần trong trang; các đường dẫn `.html` dành cho các trang con chưa tạo.
-- Nút liên hệ mở ứng dụng gọi điện hoặc email. Các biểu mẫu báo giá soạn email trên thiết bị, không tự gửi hoặc lưu dữ liệu lên máy chủ.
+- Nút liên hệ mở ứng dụng gọi điện hoặc email. Các biểu mẫu báo giá gửi trực tiếp qua EmailJS sau khi điền cấu hình; xem EMAILJS_SETUP.md.
 
 ## Chỉnh chân trang
 
@@ -172,3 +172,7 @@ Chỉ cần trình duyệt có bật JavaScript. Dữ liệu được nạp bằ
 Bố cục, hình ảnh, thương hiệu và thông tin liên hệ tham khảo từ https://phuongdonglogistics.net/. Font Inter từ Google Fonts, phân phối theo SIL Open Font License (xem `assets/fonts/OFL.txt`). Nội dung cẩm nang là nội dung minh họa được viết cho bản dựng này. Các số liệu kinh nghiệm, khách hàng, đơn hàng và logo đối tác lấy theo website mẫu; cần kiểm tra và thay bằng dữ liệu phù hợp khi dùng cho doanh nghiệp khác.
 
 Tài nguyên được lưu cục bộ; trang không tải framework, font hoặc ảnh từ CDN khi mở. Bản dựng tái tạo cấu trúc và phong cách trang chủ theo mẫu với Inter và hai màu được yêu cầu; chưa xác nhận khớp từng điểm ảnh với bản gốc.
+
+## Gửi form báo giá qua EmailJS
+
+Cửa sổ báo giá và form trang Liên hệ dùng chung `quote-email.js`. Điền Service ID, Template ID và Public Key vào `emailjs-config.js`, thiết lập email nhận trong template EmailJS rồi triển khai lên Vercel. Xem [hướng dẫn cấu hình đầy đủ](EMAILJS_SETUP.md).
